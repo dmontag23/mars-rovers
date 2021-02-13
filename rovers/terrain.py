@@ -6,6 +6,11 @@ class Terrain(object):
     def __init__(self, upper_edge_coords):
         self._upper_edge_coords = upper_edge_coords
 
+    def __eq__(self, other):
+        if isinstance(other, Terrain):
+            return self.upper_edge_coords == other.upper_edge_coords
+        return False
+
     @property
     def upper_edge_coords(self):
         return self._upper_edge_coords

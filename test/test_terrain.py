@@ -11,6 +11,16 @@ class TestTerrain(unittest.TestCase):
         self._test_point = Point(10, 5)
         self._test_terrain = Terrain(self._test_point)
 
+    def test_eq(self):
+        new_terrain = Terrain(self._test_point)
+        self.assertTrue(self._test_terrain == new_terrain)
+
+        new_terrain = Terrain(Point(-34.2, 3.452))
+        self.assertFalse(self._test_terrain == new_terrain)
+
+        new_terrain = 34
+        self.assertFalse(self._test_terrain == new_terrain)
+
     def test_upper_edge_coords_getter(self):
         self.assertEqual(self._test_point, self._test_terrain.upper_edge_coords)
 
