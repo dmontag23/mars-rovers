@@ -7,6 +7,11 @@ class Point(object):
         self._x = x
         self._y = y
 
+    def __eq__(self, other):
+        if isinstance(other, Point):
+            return self.x == other.x and self.y == other.y
+        return False
+
     @property
     def x(self):
         return self._x
