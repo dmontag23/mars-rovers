@@ -74,3 +74,11 @@ class Rover(object):
             raise Exception("You realize the position ("
                             + str(new_position.x) + " " + str(new_position.y) +") is off the plateau right?")
 
+    @property
+    def terrain(self):
+        return self._terrain
+
+    @terrain.setter
+    def terrain(self, new_terrain):
+        self._terrain = new_terrain
+

@@ -120,6 +120,14 @@ class TestRover(unittest.TestCase):
                             + str(new_position.x) + " " + str(new_position.y) +") is off the plateau right?"
                         in str(context.exception))
 
+    def test_terrain_getter(self):
+        self.assertEqual(self._test_terrain, self._test_rover.terrain)
+
+    def test_terrain_setter(self):
+        new_terrain = Terrain(Point(9,9))
+        self._test_rover.terrain = new_terrain
+        self.assertEqual(new_terrain, self._test_rover.terrain)
+
 
 if __name__ == '__main__':
     unittest.main()
