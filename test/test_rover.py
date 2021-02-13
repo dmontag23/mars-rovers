@@ -76,22 +76,22 @@ class TestRover(unittest.TestCase):
         self.assertTrue(new_movement + ' is not a valid movement!' in str(context.exception))
 
     def test_is_valid_direction(self):
-        self.assertTrue(self._test_rover.is_valid_direction('N'))
-        self.assertTrue(self._test_rover.is_valid_direction('E'))
-        self.assertTrue(self._test_rover.is_valid_direction('S'))
-        self.assertTrue(self._test_rover.is_valid_direction('W'))
-        self.assertFalse(self._test_rover.is_valid_direction('n'))
-        self.assertFalse(self._test_rover.is_valid_direction('4'))
-        self.assertFalse(self._test_rover.is_valid_direction('432.3'))
+        self.assertTrue(Rover.is_valid_direction('N'))
+        self.assertTrue(Rover.is_valid_direction('E'))
+        self.assertTrue(Rover.is_valid_direction('S'))
+        self.assertTrue(Rover.is_valid_direction('W'))
+        self.assertFalse(Rover.is_valid_direction('n'))
+        self.assertFalse(Rover.is_valid_direction('4'))
+        self.assertFalse(Rover.is_valid_direction('432.3'))
 
     def test_is_valid_movement(self):
-        self.assertTrue(self._test_rover.is_valid_movement('L'))
-        self.assertTrue(self._test_rover.is_valid_movement('R'))
-        self.assertTrue(self._test_rover.is_valid_movement('M'))
-        self.assertFalse(self._test_rover.is_valid_movement('l'))
-        self.assertFalse(self._test_rover.is_valid_movement('r'))
-        self.assertFalse(self._test_rover.is_valid_movement('42'))
-        self.assertFalse(self._test_rover.is_valid_movement('42.42'))
+        self.assertTrue(Rover.is_valid_movement('L'))
+        self.assertTrue(Rover.is_valid_movement('R'))
+        self.assertTrue(Rover.is_valid_movement('M'))
+        self.assertFalse(Rover.is_valid_movement('l'))
+        self.assertFalse(Rover.is_valid_movement('r'))
+        self.assertFalse(Rover.is_valid_movement('42'))
+        self.assertFalse(Rover.is_valid_movement('42.42'))
 
     def test_move(self):
         self._test_rover.move()
