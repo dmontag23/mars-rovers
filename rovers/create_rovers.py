@@ -3,12 +3,21 @@ from rovers.rover import Rover
 from rovers.terrain import Terrain
 
 class CreateRovers(object):
-    '''
-    CreateRovers onject
-    '''
+    """
+    The CreateRovers object provides a way for users to interface with a Rover object via the command line.
+    """
 
     @staticmethod
     def create_command_from_user_input(input_str):
+        """
+        Given an input string, validate the string and return a command to execute
+
+        :param input_str: Command string to validate
+        :type input_str: str
+
+        :returns: The command to execute on the rover
+        :rtype: str
+        """
 
         # find invalid input
         if not all(Rover.is_valid_movement(char) for char in input_str):
@@ -19,9 +28,16 @@ class CreateRovers(object):
     @classmethod
     def create_rovers(cls):
         """
-        Creates a terrain and rovers based on user input.
+        Creates rovers on a terrain based on user input
         Runs the program until an exception is raised.
+
+        :param cls: Class value
+        :type cls: reateRovers
+
+        :returns: None
+        :rtype: None
         """
+
         input_str = input(
             "Please enter two positive integer values for the upper-right coordinates of the plateau separated "
             "by a space (like 6 4):")
@@ -40,6 +56,18 @@ class CreateRovers(object):
 
     @staticmethod
     def create_rover_from_user_input(input_str, terrain):
+        """
+        Creates rovers based on user input
+
+        :param input_str: Initial rover coordinates and direction
+        :type input_str: str
+        :param terrain: Terrain on which the rover will move
+        :type terrain: Terrain
+
+        :returns: A rover based on the user specifications
+        :rtype: Rover
+        """
+
         try:
             input_str_list = input_str.split()
 
@@ -65,6 +93,16 @@ class CreateRovers(object):
 
     @staticmethod
     def create_terrain_from_user_input(input_str):
+        """
+        Creates a terrtain based on user input
+
+        :param input_str: Upper coordinates for the edge of the terrain
+        :type input_str: str
+
+        :returns: A terrain based on the user specifications
+        :rtype: Terrain
+        """
+
         try:
             num_list = list(map(int, input_str.split()))
 
