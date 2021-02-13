@@ -43,11 +43,13 @@ class Rover(object):
         elif movement == 'M':
             self.move()
 
-    def is_valid_direction(self, input_dir):
-        return input_dir in self.DIRECTIONS
+    @classmethod
+    def is_valid_direction(cls, input_dir):
+        return input_dir in cls.DIRECTIONS
 
-    def is_valid_movement(self, input_move):
-        return input_move in self.MOVEMENTS
+    @classmethod
+    def is_valid_movement(cls, input_move):
+        return input_move in cls.MOVEMENTS
 
     def move(self):
         if self._direction == 'N':
