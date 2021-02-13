@@ -32,6 +32,16 @@ class TestRover(unittest.TestCase):
             self._test_rover.direction = new_value
         self.assertTrue(new_value + ' is not a valid direction!' in str(context.exception))
 
+    def test_example_1(self):
+        my_rover = Rover(Point(1,2), 'N', Terrain(Point(5, 5)))
+        my_rover.execute_command('LMLMLMLMM')
+        self.assertEqual("1 3 N", my_rover.current_position())
+
+    def test_example_2(self):
+        my_rover = Rover(Point(3,3), 'E', Terrain(Point(5, 5)))
+        my_rover.execute_command('MMRMMRMRRM')
+        self.assertEqual("5 1 E", my_rover.current_position())
+
     def test_execute_command(self):
         self._test_rover.execute_command("LMRRMLMLM")
         self.assertEqual(Point(1,1), self._test_rover.position)
