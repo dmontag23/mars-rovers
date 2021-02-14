@@ -1,3 +1,4 @@
 from rovers.create_rovers import CreateRovers
 
-CreateRovers.create_rovers()
+if __name__ == '__main__':
+    CreateRovers.create_rovers()
