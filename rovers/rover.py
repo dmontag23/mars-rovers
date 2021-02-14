@@ -37,7 +37,7 @@ class Rover(object):
         :rtype: str
         """
 
-        return str(self._position.x) + " " + str(self._position.y) + " " + self._direction
+        return str(self.position.x) + " " + str(self.position.y) + " " + self.direction
 
     @property
     def direction(self):
@@ -95,9 +95,9 @@ class Rover(object):
         if not self.is_valid_movement(movement):
             raise Exception(movement + " is not a valid movement!")
         if movement == 'L':
-            self._direction = self.DIRECTIONS[(self.DIRECTIONS.index(self._direction) - 1) % len(self.DIRECTIONS)]
+            self.direction = self.DIRECTIONS[(self.DIRECTIONS.index(self.direction) - 1) % len(self.DIRECTIONS)]
         elif movement == 'R':
-            self._direction = self.DIRECTIONS[(self.DIRECTIONS.index(self._direction) + 1) % len(self.DIRECTIONS)]
+            self.direction = self.DIRECTIONS[(self.DIRECTIONS.index(self.direction) + 1) % len(self.DIRECTIONS)]
         elif movement == 'M':
             self.move()
 
@@ -137,17 +137,17 @@ class Rover(object):
         :rtype: None
         """
 
-        if self._direction == 'N':
-            self._position.y += 1
-        elif self._direction == 'E':
-            self._position.x += 1
-        elif self._direction == 'S':
-            self._position.y -= 1
-        elif self._direction == 'W':
-            self._position.x -= 1
-        if not self._terrain.is_valid_move(self._position):
+        if self.direction == 'N':
+            self.position.y += 1
+        elif self.direction == 'E':
+            self.position.x += 1
+        elif self.direction == 'S':
+            self.position.y -= 1
+        elif self.direction == 'W':
+            self.position.x -= 1
+        if not self.terrain.is_valid_move(self.position):
             raise Exception("The rover moved off the plateau and burst into flame! (You tried to move to: ("
-                            + str(self._position.x) + " " + str(self._position.y) +"))")
+                            + str(self.position.x) + " " + str(self.position.y) +"))")
 
     @property
     def position(self):
@@ -172,7 +172,7 @@ class Rover(object):
         :rtype: None
         """
 
-        if self._terrain.is_valid_move(new_position):
+        if self.terrain.is_valid_move(new_position):
             self._position = new_position
         else:
             raise Exception("You realize the position ("

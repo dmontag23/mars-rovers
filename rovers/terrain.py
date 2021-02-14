@@ -42,8 +42,8 @@ class Terrain(object):
         :rtype: bool
         """
 
-        return 0 <= coords_to_validate.x <= self._upper_edge_coords.x and \
-               0<= coords_to_validate.y <= self._upper_edge_coords.y
+        return 0 <= coords_to_validate.x <= self.upper_edge_coords.x and \
+               0<= coords_to_validate.y <= self.upper_edge_coords.y
 
     @property
     def upper_edge_coords(self):
